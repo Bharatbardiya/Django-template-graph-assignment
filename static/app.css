@@ -1,0 +1,18 @@
+.graph-div{
+    min-height: 100vh;
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.graph-div > h1{
+    margin-top: 20px;
+}
+.graph-div > div{
+    width: 90%;
+    max-height: 70vh;
+    display: flex;
+    justify-content: center;
+
+}

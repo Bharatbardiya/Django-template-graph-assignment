@@ -4,7 +4,6 @@ from django.db.models import Count
 # Create your views here.
 
 def index(request):
-    
     return render(request,'school/index.html')
 
 def question_solution(request, questionNo):
