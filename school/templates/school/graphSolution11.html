@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Question
+{{question}} , Part {{part}} {% endblock title %} {% block content%}
+<h1>Question {{question}}, Part {{part}}</h1>
+
+
+<div style="max-height: 600px; max-width:800px">
+
+    <canvas id="matchesChart" width="500" height="300"></canvas>
+
+</div>
+
+
+<script>
+    // Assuming you have an array named 'schoolData' where each element is a list [season, match_count]
+    // Example: [['Season1', 10], ['Season2', 15], ...]
+
+    // Extracting season names and match counts for Chart.js
+    var schoolData = {{dataArray|safe}}
+    const district_name = schoolData.map(entry => entry[0]);
+    const no_of_schools = schoolData.map(entry => entry[1]);
+
+    // Creating a bar chart using Chart.js
+    const ctx = document.getElementById('matchesChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: district_name,
+            datasets: [{
+                label: 'Number of Schools per Destrict',
+                data: no_of_schools,
+                backgroundColor: '#873e23', // Adjust the color as needed
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'category',
+                    position: 'bottom',
+                    labels: district_name
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left'
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}

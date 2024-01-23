@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Landing Page
+{% endblock title %}
+
+{% block content%}
+<div class="container">
+    
+    <div class="bg-light p-3 rounded">
+        <h1> Ques-1: matches app</h1>
+        <p class="lead">
+            <ul>
+                <li>
+                    - CSV to be used: <b>primaryschool</b>
+                </li>
+                <li>
+                    - python library to be used: <b>matplotlib</b>
+                </li>
+            </ul>
+        </p>
+        <p>Plot the graph of school per district</p>
+        <a class="btn btn-primary" href="{% url "school-graph" "11" %}">Answer</a>
+        <p>Plot graph school category per district.</p>
+        <a class="btn btn-primary" href="{% url "school-graph" "12" %}">Answer</a>
+        <p>Plot graph language speaks per district</p>
+        <a class="btn btn-primary" href="{% url "school-graph" "13" %}">Answer</a>
+    </div>
+    <div class="bg-light p-3 rounded mt-4">
+        <h1> Ques-2:</h1>
+        <p class="lead">
+            <ul>
+                <li>
+                    - CSV to be used: <b>matches</b> and <b>deliveries</b>
+            
+                </li>
+                <li>
+                    - python library to be used: <b>matplotlib</b>
+                </li>
+            </ul>
+        </p>
+        <p>1. Plot graph matches played per IPL season.</p>
+        <a class="btn btn-primary" href="{% url "matches-graph" "21" %}" role="button">Answer</a>
+        <p>Plot graph matches won by each team per season.</p>
+        <a class="btn btn-primary" href="{% url "matches-graph" "22" %}" role="button">Answer</a>
+        
+    </div>
+</div>
+
+
+{% endblock %}
